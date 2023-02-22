@@ -12,11 +12,11 @@ victimCode:
 	STR X4,[SP,#-8]	// Store X4 content into the location pointed by SP
 	STR X5,[SP,#-16]
 	STR X6,[SP,#-24]
-  STR X7,[SP,#-32]
+  	STR X7,[SP,#-32]
 	MOV X5,#0	// Move (load) 0 into X5
 	MOV X6,#50
-  MOV X7,#1
-  LSL X7, X7, X3
+  	MOV X7,#1
+  	LSL X7, X7, X3
 	// Cortex-a53 cannot use the result of a speculative instruction in another operation
 	// Value at array1+x is preloaded in order not to be executed speculatively like in the original Spectre attack
 	// In order to do so we have to be sure the access to array1+x (in case x is out of bound)
