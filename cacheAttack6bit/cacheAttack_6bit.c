@@ -55,7 +55,6 @@
 extern long int Flush(char* line);
 void AccessShuffle(int*letture,int base,int v,int mod);
 
-// Dichiarate globali su suggerimento di Davide (nessun motivo specifico)
 // L1 CACHE LINE SIZE: 64 byte
 // VALUES A BYTE CAN ASSUME: 256
 
