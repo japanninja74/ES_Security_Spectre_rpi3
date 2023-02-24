@@ -105,7 +105,7 @@ int main(void){
 		// SAME_BYTE_CYCLES tries for each byte
   		for(j=0;j<SAME_READ_CYCLES;j++){
 
-            AccessShuffle(line,base[j],v[j],SHFL_DIM_LINE);
+            		AccessShuffle(line,base[j],v[j],SHFL_DIM_LINE);
 
 			for(l=0;l<PAGES;l++){
 				// Flush
@@ -125,15 +125,15 @@ int main(void){
 
 				Flush(&array1_size);
 
-	            junk = array2[x*64];
+	            		junk = array2[x*64];
 
-	            for(k=0;k<64;k++){
+	            		for(k=0;k<64;k++){
 					// Non-cached read
 					addr = &array2[l*4096+line[k]*64];
-		            start=rdtsc32();
-		            junk &= *addr;
-		            end=rdtsc32();
-		            timings[line[k]+l*64]+=end-start;
+		           	 	start=rdtsc32();
+		            		junk &= *addr;
+		            		end=rdtsc32();
+		            		timings[line[k]+l*64]+=end-start;
 					//printf("Page %d, Line %d, Timing %u\n",l,line[k],end-start);
 				}
 
@@ -146,10 +146,10 @@ int main(void){
 	  		fprintf(fout,"%u ",timings[k]);
 
 			// Numbers below TMIN detect --> trying to find a threshold
-            if(timings[k]<TMIN){
-	            below++;
-//            	printf("Run #%d",i);
-//            	printf("--> %u\n",timings[k]);
+            		if(timings[k]<TMIN){
+	            		below++;
+//            			printf("Run #%d",i);
+//            			printf("--> %u\n",timings[k]);
 
 			}
 	  	}
