@@ -1,3 +1,5 @@
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-nc/4.0/) 
+
 # Spectre Implementation on rpi3
 
 Simple Spectre implementation attack PoC for Raspberry Pi 3B+
@@ -11,7 +13,7 @@ This result was not significant enough for our purposes, so this version of the 
 
 ## Supporting material
 
-* **Lecture - Spectre.pdf:** an introductory lecture on Spectre* **Lecture - an introduction to spectre and meltdown.pdf:** an extensive overview of the Spectre attack and its proposed implementation
+* **Lecture - Spectre.pdf:** an introductory lecture on Spectre* **Lecture - an introduction to spectre and meltdown.pdf:** An extensive overview of the Spectre attack and its proposed implementation
 
 
 ## Authors
@@ -19,6 +21,7 @@ This result was not significant enough for our purposes, so this version of the 
 This material was initially developed as part of an assignment for the Operating Systems for embedded systems course delivered at Politecnico di Torino by Prof. Stefano Di Carlo during the academic year 2022/20023. 
 
 Credits for the preparation of this material go to:
+
 * [Davide Giuffrida](https://www.linkedin.com/in/davide-giuffrida-55959a267/)
 * [Matteo Fragassi](https://www.linkedin.com/in/matteo-fragassi-06a19b241/)
 * [Umberto Toppino](https://www.linkedin.com/in/elena-roncolino-177908159/)
